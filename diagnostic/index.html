@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Founder Independence Diagnostic | Aspire Growth Advisors</title>
+<meta name="description" content="Ten questions. One score. An honest read on how much your business depends on you.">
+<style>
+  :root {
+    --ink: #10151c;
+    --ink-2: #3f4854;
+    --ink-3: #6b7482;
+    --line: #e2e5ea;
+    --surface: #ffffff;
+    --page: #f6f7f9;
+    --accent: #1c5cab;
+    --accent-soft: #e8f0fb;
+    --s1: #86b6ef; --s2: #5598e7; --s3: #2a78d6; --s4: #1c5cab; --s5: #104281;
+    --warn: #d03b3b;
+    --good: #0ca30c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--page); color: var(--ink);
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+    padding: 32px 18px 80px;
+  }
+  .wrap { max-width: 660px; margin: 0 auto; }
+
+  .brand { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; margin-bottom: 26px; }
+
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 34px 32px; box-shadow: 0 1px 2px rgba(16,21,28,0.04); }
+  @media (max-width: 560px) { .card { padding: 26px 20px; } body { padding: 20px 12px 60px; } }
+
+  h1 { font-size: 30px; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 18px; }
+  h2 { font-size: 21px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 14px; }
+  p { margin-bottom: 14px; color: var(--ink-2); font-size: 15.5px; }
+  p.lead { font-size: 17px; color: var(--ink); }
+  p:last-child { margin-bottom: 0; }
+  .punch { font-weight: 700; color: var(--ink); }
+  .moral { font-style: italic; color: var(--ink-2); font-size: 15.5px; line-height: 1.7; }
+  .moral div { margin-bottom: 3px; }
+
+  .btn { display: inline-block; background: var(--accent); color: #fff; border: none; border-radius: 8px;
+         padding: 14px 28px; font-size: 15.5px; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .btn:hover { background: #174f93; }
+  .btn:disabled { background: #b9c2ce; cursor: not-allowed; }
+  .btn-ghost { background: transparent; color: var(--ink-3); border: none; font-size: 14px; cursor: pointer; font-family: inherit; padding: 10px 0; }
+  .btn-ghost:hover { color: var(--ink); }
+
+  .meta { font-size: 13.5px; color: var(--ink-3); }
+  .rule { height: 1px; background: var(--line); margin: 24px 0; }
+
+  /* progress */
+  .prog-wrap { margin-bottom: 26px; }
+  .prog-track { height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+  .prog-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.28s ease; }
+  .prog-label { font-size: 12px; color: var(--ink-3); margin-top: 9px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+
+  /* question */
+  .qtag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .qtext { font-size: 21px; line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 6px; font-weight: 600; }
+  .qhelp { font-size: 14px; color: var(--ink-3); margin-bottom: 22px; }
+  .opts { display: flex; flex-direction: column; gap: 9px; }
+  .opt { text-align: left; background: var(--surface); border: 1.5px solid var(--line); border-radius: 9px;
+         padding: 14px 16px; font-size: 15px; color: var(--ink-2); cursor: pointer; font-family: inherit; line-height: 1.45; transition: border-color .12s, background .12s; }
+  .opt:hover { border-color: var(--s2); background: #fbfcfe; }
+  .opt.sel { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); font-weight: 500; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; }
+
+  /* form */
+  label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 6px; }
+  input, select { width: 100%; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 8px; font-size: 15px; font-family: inherit; color: var(--ink); background: var(--surface); appearance: none; }
+  select { background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7482' d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
+  input:focus, select:focus { outline: none; border-color: var(--accent); }
+  .field { margin-bottom: 15px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px) { .two { grid-template-columns: 1fr; } }
+  .err { color: var(--warn); font-size: 13px; margin-top: 10px; }
+
+  /* result */
+  .score-row { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; }
+  .score-num { font-size: 60px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .score-den { font-size: 19px; color: var(--ink-3); font-weight: 600; }
+  .band { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+          padding: 5px 12px; border-radius: 999px; margin-bottom: 20px; }
+  .meter { height: 12px; background: var(--line); border-radius: 6px; overflow: hidden; margin: 20px 0 8px; position: relative; }
+  .meter-fill { height: 100%; border-radius: 6px; transition: width .7s cubic-bezier(.2,.7,.3,1); }
+  .meter-gate { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); opacity: .45; left: 85%; }
+  .meter-key { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-3); }
+
+  /* dimensions */
+  .dim { margin-bottom: 17px; }
+  .dim-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 5px; }
+  .dim-name { font-size: 15px; font-weight: 700; }
+  .dim-lens { font-size: 12.5px; color: var(--ink-3); font-weight: 400; }
+  .dim-pct { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .dim-track { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .dim-fill { height: 100%; border-radius: 4px; transition: width .6s cubic-bezier(.2,.7,.3,1); }
+  .dim-note { font-size: 13.5px; color: var(--ink-2); margin-top: 6px; }
+  .dim.weak .dim-name::after { content: " ← weakest"; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--warn); font-weight: 700; }
+
+  /* diagnosis */
+  .diag { background: #f7f9fc; border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; }
+  .diag-tag { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+  .seq { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  @media (max-width: 560px) { .seq { grid-template-columns: 1fr; } .diag { padding: 18px 16px; } }
+  .seq-do, .seq-not { border-radius: 9px; padding: 14px 16px; }
+  .seq-do { background: #eef7ee; border-left: 3px solid var(--good); }
+  .seq-not { background: #fdf3f3; border-left: 3px solid var(--warn); }
+  .seq span { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; }
+  .seq-do span { color: #0a7a0a; } .seq-not span { color: var(--warn); }
+  .seq p { font-size: 14px; margin: 0; }
+
+  /* working session */
+  .session { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 22px 24px; }
+  @media (max-width: 560px) { .session { padding: 18px 16px; } }
+  .sess-tag { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+  .sess-meta { font-size: 13.5px; color: var(--ink-3); margin-bottom: 18px; font-weight: 600; }
+  .session ol { margin: 0 0 4px 0; padding: 0; list-style: none; counter-reset: st; }
+  .session ol li { counter-increment: st; position: relative; padding-left: 38px; margin-bottom: 15px; font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+  .session ol li::before { content: counter(st); position: absolute; left: 0; top: 0; width: 25px; height: 25px;
+    background: var(--accent-soft); color: var(--accent); border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 12.5px; font-weight: 700; }
+  .sess-out { margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--line); }
+  .sess-out span { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--ink-3); margin-bottom: 6px; }
+  .sess-out p { font-size: 14.5px; color: var(--ink); margin: 0; }
+
+  /* CEPA next step, shown only at the top band */
+  .cepa { background: #f1faf1; border: 1px solid #cfe8cf; border-radius: 12px; padding: 24px 26px; }
+  @media (max-width: 560px) { .cepa { padding: 18px 16px; } }
+  .cepa-tag { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #0a7a0a; font-weight: 700; margin-bottom: 8px; }
+  .cepa .btn { background: #0a7a0a; }
+  .cepa .btn:hover { background: #086508; }
+
+  /* cost */
+  .costbox { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; background: var(--tile-bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; }
+  @media (max-width: 480px) { .costbox { grid-template-columns: 1fr; gap: 8px; } }
+  .costnum { font-size: 44px; font-weight: 700; letter-spacing: -.03em; line-height: 1; color: var(--warn); white-space: nowrap; }
+  .costnum small { font-size: 14px; color: var(--ink-3); font-weight: 600; letter-spacing: 0; }
+  .costtext { font-size: 14.5px; color: var(--ink-2); }
+
+  .constraint { border-left: 3px solid var(--warn); background: #fdf6f6; border-radius: 0 8px 8px 0; padding: 14px 16px; margin-bottom: 11px; }
+  .constraint .cn { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; color: var(--warn); margin-bottom: 5px; }
+  .constraint .cq { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .constraint .ca { font-size: 14px; color: var(--ink-2); }
+
+  .next { background: var(--accent-soft); border-radius: 10px; padding: 20px 22px; margin-top: 22px; }
+  .next h3 { font-size: 16px; margin-bottom: 10px; }
+  .next p { font-size: 15px; color: var(--ink-2); }
+
+  .hide { display: none; }
+  .fade { animation: f .3s ease; }
+  @keyframes f { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: none; } }
+
+  footer { text-align: center; margin-top: 26px; font-size: 12.5px; color: var(--ink-3); }
+  footer a { color: var(--ink-3); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Aspire Growth Advisors</div>
+
+  <!-- ============ INTRO ============ -->
+  <section id="intro" class="card fade">
+    <h1>The Founder Independence Diagnostic</h1>
+    <p class="lead">Two founders work the same sixty-hour week.</p>
+    <p>Take the first founder out for a month and the business keeps running. Take the second founder out and deals freeze, the team hesitates, and everything waits for her to come back.</p>
+    <p class="punch">Same hours. Different structure.</p>
+    <p>Independence stays comfortable as long as it's a feeling. The moment you put a number on it, it gets honest.</p>
+    <p>Ten questions. Five minutes. Answer for the business as it runs today, not the one you're building toward.</p>
+    <div class="rule"></div>
+    <button class="btn" onclick="start()">Begin the diagnostic</button>
+    <p class="meta" style="margin-top:16px;">Built from the Founder Independence methodology. Herb Cogliano, Certified Scaling Up Coach, CEPA, 2x founder.</p>
+  </section>
+
+  <!-- ============ QUESTIONS ============ -->
+  <section id="quiz" class="hide">
+    <div class="prog-wrap">
+      <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+      <div class="prog-label" id="progLabel">Question 1 of 10</div>
+    </div>
+    <div class="card">
+      <div class="qtag" id="qtag"></div>
+      <div class="qtext" id="qtext"></div>
+      <div class="qhelp" id="qhelp"></div>
+      <div class="opts" id="opts"></div>
+      <div class="nav">
+        <button class="btn-ghost" id="backBtn" onclick="back()">← Back</button>
+        <span class="meta" id="autoNote">Select an answer to continue</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAPTURE ============ -->
+  <section id="capture" class="card hide">
+    <h2>Your score is ready.</h2>
+    <p>Where should the full read go? You'll get your score, the one or two constraints holding it down, and the first move to make.</p>
+    <div class="rule"></div>
+    <div class="two">
+      <div class="field"><label for="fn">First name</label><input id="fn" type="text" autocomplete="given-name"></div>
+      <div class="field"><label for="ln">Last name</label><input id="ln" type="text" autocomplete="family-name"></div>
+    </div>
+    <div class="field"><label for="em">Work email</label><input id="em" type="email" autocomplete="email" placeholder="you@company.com"></div>
+    <div class="field"><label for="co">Company</label><input id="co" type="text" autocomplete="organization"></div>
+    <div class="field"><label for="rev">Annual revenue</label>
+      <select id="rev">
+        <option value="">Select</option>
+        <option>Under $5M</option>
+        <option>$5M to $15M</option>
+        <option>$15M to $30M</option>
+        <option>$30M to $50M</option>
+        <option>Over $50M</option>
+      </select>
+    </div>
+    <div class="field"><label for="intent">What's driving this for you right now?</label>
+      <select id="intent">
+        <option value="">Select</option>
+        <option>I want to work on the business, not in it</option>
+        <option>I want my time back for family, health, travel, or pursuits I've deferred</option>
+        <option>Both. Growth and a life outside the business.</option>
+        <option>I'm planning to sell or transition within three years</option>
+        <option>Benchmarking only</option>
+      </select>
+    </div>
+    <button class="btn" id="subBtn" onclick="submitForm()">Show my score</button>
+    <button class="btn-ghost hide" id="skipBtn" onclick="submitForm(true)" style="margin-left:14px;">Skip and show my score</button>
+    <div class="err hide" id="err"></div>
+    <p class="meta" style="margin-top:14px;" id="captureNote">No list rental. No sequence you can't leave. One email with your result.</p>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section id="result" class="card hide">
+    <div class="qtag">Your Founder Independence Score</div>
+    <p class="meta" style="margin-bottom:14px;">This measures founder dependency. It is a separate instrument from the Three Gates assessment, which scores Business Readiness, Owner Readiness, and Market Attractiveness against their own bar.</p>
+    <div class="score-row"><span class="score-num" id="pct">0</span><span class="score-den">out of 100</span></div>
+    <span class="band" id="bandChip"></span>
+    <div class="meter"><div class="meter-fill" id="meterFill" style="width:0%"></div><div class="meter-gate" title="The 1/5 Founder Standard"></div></div>
+    <div class="meter-key"><span>Quicksand</span><span style="margin-left:auto;padding-right:8px;">The 1/5 Standard</span></div>
+
+    <div class="rule"></div>
+    <h2>The pattern underneath the score</h2>
+    <p class="meta" style="margin-bottom:18px;">Two founders can score the same and have opposite problems. This is where yours sits.</p>
+    <div id="dims"></div>
+    <div id="optionality" class="meta" style="margin-top:14px;"></div>
+
+    <div class="rule"></div>
+    <h2>What pulled it down</h2>
+    <p class="meta" style="margin-bottom:16px;">Your two lowest answers, in your own words.</p>
+    <div id="constraints"></div>
+
+    <div class="rule"></div>
+    <div class="diag">
+      <div class="diag-tag">Your diagnosis</div>
+      <h2 id="diagTitle" style="margin-bottom:12px;"></h2>
+      <div id="diagBody"></div>
+      <div class="seq">
+        <div class="seq-do"><span>Do this first</span><p id="diagDo"></p></div>
+        <div class="seq-not"><span>Do not do this yet</span><p id="diagNot"></p></div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+    <h2>What it is costing you</h2>
+    <div id="cost"></div>
+
+    <div class="rule"></div>
+    <div class="session">
+      <div class="sess-tag">Your first working session</div>
+      <h2 id="sessTitle" style="margin-bottom:6px;"></h2>
+      <div class="sess-meta" id="sessMeta"></div>
+      <ol id="sessSteps"></ol>
+      <div class="sess-out"><span>You leave with</span><p id="sessOut"></p></div>
+    </div>
+
+    <div id="cepaBlock" class="hide">
+      <div class="rule"></div>
+      <div class="cepa">
+        <div class="cepa-tag">What comes next</div>
+        <h2 style="margin-bottom:12px;">Business and Owner Readiness</h2>
+        <p>Independence is what you control. Saleability is what the market decides, and the two are related without being the same thing.</p>
+        <p>Business Readiness and Owner Readiness are scored through a formal saleability assessment. It is deliberately an outside process, because the whole point is a buyer's lens rather than your own, and no founder can apply that lens to the company they built. It is Certified Exit Planning Advisor work, and it is what I do.</p>
+        <p>You are further along than most founders ever get. That is exactly when this conversation is worth having, while you still have leverage and time, rather than when a buyer opens diligence and sets the timetable for you.</p>
+        <a class="btn" href="mailto:herb@aspiregrowthadvisors.com?subject=Founder%20saleability%20assessment" style="text-decoration:none;margin-top:6px;">Start the conversation</a>
+        <p class="meta" style="margin-top:12px;">Herb Cogliano · Certified Exit Planning Advisor · herb@aspiregrowthadvisors.com</p>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+    <div class="moral" id="moral"></div>
+
+    <div id="betaBlock" class="hide">
+      <div class="rule"></div>
+      <div class="next" style="background:#fff7e8;">
+        <h3>You're testing this. Two questions.</h3>
+        <p style="margin-bottom:10px;">Which question was hardest to answer, and did the score match your gut before you started?</p>
+        <p style="margin-bottom:14px;" id="betaHow">Tap below, then paste it into your reply to Herb.</p>
+        <button class="btn" id="emailBtn" onclick="emailResult()">Email my result to Herb</button>
+        <button class="btn-ghost" id="copyBtn" onclick="copyResult()" style="margin-left:14px;">Copy instead</button>
+        <div class="meta" id="copyNote" style="margin-top:10px;"></div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+    <p style="font-size:15px;"><strong>Founder Independence</strong> is the full architecture behind this diagnostic: the three leadership roles every founder-led business must fill, the decision rights, the guardrails that make autonomy safe, and the 90-day maturation sequence that transfers authority without shock.</p>
+    <p style="font-size:15px;">Herb Cogliano, Certified Scaling Up Coach, CEPA, 2x founder. <a href="mailto:herb@aspiregrowthadvisors.com" style="color:var(--accent);font-weight:600;">herb@aspiregrowthadvisors.com</a></p>
+  </section>
+
+  <footer>
+    aspiregrowthadvisors.com · Three Gates framework informed by the Value Acceleration Methodology, Chris Snider, Exit Planning Institute. FACe based on the Scaling Up framework, Verne Harnish.
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   CONFIG — set these two values, then this posts straight to HubSpot.
+   1. In HubSpot: Marketing → Forms → Create form (Embedded).
+      Add fields: Email, First name, Last name, Company.
+      Add five custom CONTACT properties:
+        - fi_score    (Number)            "Founder Independence Score"
+        - fi_band     (Single-line text)  "Founder Independence Band"
+        - fi_fit      (Single-line text)  "Founder Independence Fit"   <- filter on this
+        - fi_revenue  (Single-line text)  "Annual Revenue Band"
+        - fi_intent   (Single-line text)  "Stated Intent"
+      Publish, then copy the Form ID into FORM_GUID below.
+   2. Leave FORM_GUID empty to run in preview mode (scores work, nothing is sent).
+   ============================================================ */
+const HUBSPOT = {
+  PORTAL_ID: "5573815",
+  FORM_GUID: ""      // <-- paste your HubSpot form GUID here
+};
+
+/* BETA_MODE = true  → contact details are optional, testers get a "copy my result"
+                       button and a feedback prompt. Nothing is sent anywhere.
+   BETA_MODE = false → the live version. Email required, posts to HubSpot.
+   Flip this one value when the beta is done. */
+const BETA_MODE = true;
+
+/* Beta results by email, without HubSpot.
+   Sign up free at formspree.io, create a form, paste its endpoint below.
+   Looks like: https://formspree.io/f/xxxxxxxx
+   Leave blank and nothing is transmitted; testers use the copy or email buttons instead.
+   NOTE: when this is set, the capture screen tells testers their result is sent to Herb.
+   That wording is automatic. Do not remove it. */
+const FEEDBACK_ENDPOINT = "";
+
+const HERB_EMAIL = "herb@aspiregrowthadvisors.com";
+
+const QUESTIONS = [
+  { tag: "The One-Month Test", q: "You leave for one month. No calls, no email, no exceptions. What happens?",
+    help: "Answer for what would actually happen, not what should.",
+    opts: ["Deals freeze. My team waits for me to come back.",
+           "Most things stall. A few keep moving.",
+           "The business runs. Decisions pile up for my return.",
+           "The business runs. A handful of decisions wait.",
+           "The business runs and decides. I come back to a report, not a backlog."] },
+
+  { tag: "Central or Busy", q: "When a real decision appears, where does it land?",
+    help: "Not the org chart you drew. The one your day actually runs on.",
+    opts: ["On my desk. Always.",
+           "On my desk most of the time.",
+           "Split between me and my leaders.",
+           "With my leaders. I get consulted.",
+           "With the leader who owns that function. I hear the outcome."] },
+
+  { tag: "The 1/5 Ratio", q: "Of your working hours last week, how many were required rather than chosen?",
+    help: "Required means the business could not proceed without you personally in that hour. Chosen means architect time.",
+    opts: ["Nearly all of them were required.",
+           "About three quarters required.",
+           "Roughly half and half.",
+           "About a third required.",
+           "One day in five or less. That is the standard."] },
+
+  { tag: "The Three Engines", q: "Revenue, Operations, Finance. How many have a named leader who owns the outcome?",
+    help: "Owning the outcome, not running the tasks.",
+    opts: ["None. I own all three.",
+           "One engine has real ownership.",
+           "Two, with gaps.",
+           "All three, one is still maturing.",
+           "All three, each fully accountable for results."] },
+
+  { tag: "The Enthusiastic Rehire Test", q: "Knowing everything you know today, would you enthusiastically rehire every leader into their exact role?",
+    help: "Any hesitation counts, including a “yes, but.”",
+    opts: ["I don't have a leadership team yet.",
+           "I hesitate on most of them.",
+           "I hesitate on more than one.",
+           "I hesitate on one.",
+           "No hesitation on anyone."] },
+
+  { tag: "Authority Architecture", q: "Can each leader name what they own outright, what needs a consult, and what needs your approval?",
+    help: "Decision Rights: Fully Owned, Consult, Approval Required.",
+    opts: ["Nothing is written. It runs on instinct and history.",
+           "I've explained it out loud. Never documented.",
+           "Written for some functions.",
+           "Written for every function. Applied unevenly.",
+           "One page per function. They use it without me."] },
+
+  { tag: "Guardrails", q: "Are there measurable thresholds telling a leader when to act alone and when to escalate?",
+    help: "Cash, sales activity, spending authority, people.",
+    opts: ["No thresholds. Escalation depends on how nervous someone feels.",
+           "A few informal rules of thumb.",
+           "Some numbers defined. Not tracked.",
+           "Defined and tracked in most areas.",
+           "Defined, tracked, and triggering action without me in the room."] },
+
+  { tag: "The Founder's Reflex", q: "Something goes wrong in a function you don't own. What do you do first?",
+    help: "First instinct, not best intention.",
+    opts: ["Step in and fix it myself.",
+           "Fix it, then tell the owner what I did.",
+           "Coach them through it in the moment.",
+           "Let them handle it. Review afterward.",
+           "I usually hear about it once it's already resolved."] },
+
+  { tag: "Leadership Cadence", q: "Which rhythms hold whether or not you drive them?",
+    help: "Daily huddle. Weekly leadership meeting. Monthly all-hands. Quarterly planning.",
+    opts: ["None of them run reliably.",
+           "The weekly leadership meeting runs, when I call it.",
+           "Daily and weekly hold. Monthly and quarterly slip.",
+           "Daily, weekly, and quarterly hold. The monthly slips.",
+           "All four run on schedule without me driving them."] },
+
+  { tag: "The Three Gates", q: "If the right offer arrived in the next ninety days, could you sell, scale, or stay by choice?",
+    help: "Business Readiness. Owner Readiness. Market Attractiveness.",
+    opts: ["No. The business is me, and a buyer would see it immediately.",
+           "I'd have to stay on for years to make any deal work.",
+           "A deal is possible. Heavily earn-out weighted.",
+           "Close. A few dependencies would need cleaning up first.",
+           "All three options are genuinely open to me."] }
+];
+
+const CONSTRAINT_FIX = {
+  0: "Run the one-month test for real this year, starting in miniature. Block one full week with no contact and log every escalation that reaches you anyway. That log is your dependency map.",
+  1: "For one week, write down every decision that lands on you. Next to each, name the leader who should have owned it. That list becomes your first Decision Rights page.",
+  2: "Track every working hour for two weeks against one question: required or chosen. Do not change anything yet. Measure first.",
+  3: "Name the weakest engine. Write the Job Scorecard for that seat before you evaluate anyone against it, including the person currently in it.",
+  4: "Run the Rehire Test on every leader this month. Where you hesitate, separate the two causes: values or outcomes. The fix is different for each.",
+  5: "Pick your strongest function. Build one page: Fully Owned, Consult, Approval Required. If the authority does not fit on one page, the architecture is too complex to use.",
+  6: "Set thresholds in one category first. Cash and receivables is usually the fastest. Define the number that triggers action, and who acts.",
+  7: "The next time it happens, do nothing for twenty-four hours. Watch what the owner does. Your reflex is the constraint, not their capability.",
+  8: "Put the next four quarterly planning sessions on the calendar today, then hand the daily huddle to someone other than you. Cadence that depends on you calling it is not cadence.",
+  9: "Write down what you would actually do the Monday after a sale closed. Founders who cannot answer that are not ready regardless of what the business is worth, and readiness and timing are not the same thing."
+};
+
+const BANDS = [
+  { max: 39, key: "quicksand", label: "Quicksand", color: "#d03b3b", bg: "#fdf1f1",
+    title: "The harder you work, the deeper you sink.",
+    body: "<p>The business is not running on systems. It is running on you. Every rescue you perform teaches it to hand you the next problem, and the pattern compounds quietly while revenue climbs and everything looks like it is working.</p><p>This is not a character flaw and it is not a work-ethic problem. You are sinking because you are doing too much, not too little.</p>",
+    next: "Do not start with delegation. Start with measurement. Track two weeks of hours against required versus chosen, and log every decision that reaches you. You cannot architect your way out of a dependency you have not mapped." },
+
+  { max: 66, key: "central", label: "Central, Not Free", color: "#ec835a", bg: "#fef6f2",
+    title: "You have delegated tasks. You have not transferred authority.",
+    body: "<p>Your calendar has room in it now. Your structure does not. Work moves off your desk and decisions come right back, because the business is still built to route through you when anything real happens.</p><p>Busy is a calendar problem. Central is a structural problem. You have solved the first one.</p>",
+    next: "Build Decision Rights and authority guardrails for your strongest function first. One page: what that leader owns outright, what needs a consult, what needs your approval. Prove the architecture works where the talent is already strong, then expand it function by function." },
+
+  { max: 84, key: "architect", label: "Architect In Progress", color: "#1c5cab", bg: "#e8f0fb",
+    title: "The structure is holding. The habits are catching up.",
+    body: "<p>The architecture is real. Leaders own outcomes, decisions land where they belong most of the time, and the business no longer stops when you step away.</p><p>What remains is narrower and more personal. At this stage the constraint is usually the founder's reflex rather than the team's capability.</p>",
+    next: "Close the gap on your two lowest scores below. At this level the work is graduated authority: one function, one quarter, one clean transfer at a time. Resist the urge to fix everything at once." },
+
+  { max: 100, key: "independent", label: "The 1/5 Standard", color: "#0ca30c", bg: "#f1faf1",
+    title: "One day in. Four days on.",
+    body: "<p>You have built a company you lead, your leadership team runs, and the market rewards. Independence at this level is not a feeling you talk yourself into. It shows up in the ratio.</p><p>The risk from here is drift. Independence is earned, not declared, and it erodes the moment the cadence slips or a seat goes soft.</p>",
+    next: "Protect the ratio, because that is the part you control and it slips before anything visible does. Then get an outside read on Business and Owner Readiness while you still have leverage and time, so that when the market swings your way you can move rather than scramble." }
+];
+
+/* ---- The three dimensions. Q10 sits outside them as an outcome readout. ---- */
+const DIMENSIONS = [
+  { key: "capability",   label: "Leadership Capability", q: [3,4],
+    lens: "Do you have the bench?",
+    low:  "The seats are not filled with people who own outcomes.",
+    high: "You have leaders who own results, not just tasks." },
+  { key: "architecture", label: "Authority Architecture", q: [5,6,8],
+    lens: "Is authority defined?",
+    low:  "Nothing is written down, so authority runs on instinct and history.",
+    high: "Decision rights, guardrails, and cadence are defined and holding." },
+  { key: "behavior",     label: "Founder Behavior", q: [0,1,2,7],
+    lens: "Do you actually let go?",
+    low:  "Work still routes through you when anything real happens.",
+    high: "You stay out of the operation and the business keeps moving." }
+];
+
+/* Named diagnoses. The lowest dimension relative to the others sets the pattern.
+   This is the read a founder cannot reach on their own. */
+const DIAGNOSES = {
+  capability: {
+    title: "You are building architecture on a bench that is not ready.",
+    body: "<p>Your structure scores higher than your people. That combination looks like progress and behaves like a trap. Decision rights handed to a seat that cannot carry them do not transfer authority. They transfer risk, and the work comes back to you with a delay and a mess attached.</p><p>This is a sequencing problem rather than an effort problem, which is good news. You are doing real work. You are doing it in the wrong order.</p>",
+    doFirst: "Fix the roles before you transfer another decision. Name the weakest of your revenue, operations, and finance leaders, then write down what success in that role looks like at your three-to-five-year revenue target. Measure the person against that standard rather than against effort or tenure.",
+    notYet: "Do not build more decision rights, guardrails, or cadence until the bench is right. Every page you write now will need rewriting for the person who eventually holds the seat.",
+    sess: {"title": "Score your three leaders against where you are going", "meta": "45 minutes. Alone first, then with your leadership team.", "steps": ["Write down three names: the person who owns revenue, the person who owns operations, and the person who owns the money. Flag any of the three with no name, and any name that appears twice.", "Ask the today question. Knowing everything you know today, would you enthusiastically rehire this person into this exact role? A “yes, but” is a no. Where you hesitate, name the cause: values or outcomes. They look identical and they have different fixes.", "Ask the harder question. Write your revenue target for three to five years out, then describe what each role has to deliver at that number rather than this one. At ten million your revenue leader is often your best closer working the biggest accounts personally. At twenty that job becomes building a repeatable process and a team of sellers. Score each person against the future role."], "output": "A written standard for each role, defined against the business you are building rather than the one you are running, and an honest read on which of the three can carry you there. Hire for the fire and you will be hiring again in eighteen months."} },
+  architecture: {
+    title: "You have the people. You have not given them the authority.",
+    body: "<p>Your bench scores higher than your structure. You have capable leaders operating inside an architecture that was never written down, so they escalate by instinct and you decide by default. Both sides are behaving rationally. The system is the problem.</p><p>This is the most fixable pattern in the diagnostic, and it is the one founders most often mistake for a people problem. Good leaders in an undefined structure look hesitant. They are not hesitant. They are unclear.</p>",
+    doFirst: "Build one page for your strongest function: what that leader owns outright, what needs a consult, what needs your approval. Then set the numeric thresholds that tell them when to act alone and when to escalate.",
+    notYet: "Do not replace anyone yet. Confusion is not a capability problem, and a hiring cycle started from this pattern usually costs a year and returns you to the same place.",
+    sess: {"title": "Build one page for your strongest function", "meta": "90 minutes, with that leader in the room. Co-built, not handed down.", "steps": ["Pick the function where the talent is already strong. List every recurring decision that leader faces in a normal month.", "Sort each decision into Fully Owned, Consult, or Approval Required. Fully Owned means real authority operating inside limits you set, not unlimited authority.", "Agree three rules out loud, and have the leader endorse all three. Limits get set up front, not after. Anything unlisted defaults to Fully Owned. No surprises on anything that could materially hit cash, customers, people, legal, or reputation."], "output": "One page that leader can reach for in the moment they feel the old reflex to ask you. If it does not fit on one page, the architecture is too complex to use."} },
+  behavior: {
+    title: "The structure is holding. You are the one overriding it.",
+    body: "<p>Your people and your architecture both score higher than your own behavior. The business is more ready for your absence than you are. Decisions have owners, thresholds exist, and you step in anyway, usually fast enough that nobody names it out loud.</p><p>Every rescue teaches the business to route the next problem back to you, so the structure quietly decays while looking intact on paper.</p>",
+    doFirst: "The next time something goes wrong in a function you do not own, do nothing for twenty-four hours. Watch what the owner does. Log what actually broke, if anything.",
+    notYet: "Do not add more process. You do not have a systems gap. Another framework layered on top of a working structure becomes one more thing you personally maintain.",
+    sess: {"title": "Find where the authority is regressing", "meta": "60 minutes. Alone, and honestly.", "steps": ["List the last ten decisions that came back to you in a function you do not own.", "Against each one, mark which happened: the owner escalated it to you, or you inserted yourself into it.", "Count the second column. That number is the size of the problem, and it is not a capability problem."], "output": "An honest read on whether the structure is failing or you are overriding it. Authority expands in stages, and each stage needs a full quarter of demonstrated stability before the next. Speed was never the goal."} },
+  even: {
+    title: "Everything still runs downstream of you.",
+    body: "<p>No single dimension is dragging the others. People, structure, and habit are all sitting at roughly the same level, which means the business has not yet been built to operate apart from you in any dimension.</p><p>That sounds worse than it is. A business with one deep hole needs surgery. A business at an even baseline needs sequence, and sequence is learnable.</p>",
+    doFirst: "Start with the leaders, because nothing downstream holds without them. Run the rehire question on each of them this month and name the weakest of the three.",
+    notYet: "Do not attempt all three at once. Founders who try to fix capability, architecture, and their own habits in the same quarter usually finish the quarter with three half-built systems.",
+    sess: {"title": "Start with your three leaders, because nothing downstream holds without them", "meta": "45 minutes. Alone first.", "steps": ["Write down three names: the person who owns revenue, the person who owns operations, and the person who owns the money. A blank or a name written twice is your first finding.", "Ask two questions of each name. Knowing what you know today, would you enthusiastically rehire this person into this exact role? And will that person still be right for the role at the revenue you are aiming at in three to five years?", "Pick the single weakest of the three. That one role is your quarter. Not all three."], "output": "One seat named, and permission to ignore everything else until it is fixed."} },
+  clear: {
+    title: "The architecture is doing its job.",
+    body: "<p>All three dimensions score strongly. Your leaders own outcomes, the structure is written and holding, and you are staying out of it. This is what the standard looks like from the inside, and most founders never get here.</p><p>Which makes the next question a different one. You have built the independence. Whether the market will pay you for it is a separate matter, and it is not a question you can answer from inside the business.</p>",
+    doFirst: "Protect the ratio, because independence erodes quietly and usually for a full quarter before anyone says so. Then get an outside read on what you have built, using a buyer's lens rather than your own.",
+    notYet: "Do not assume operational independence equals market readiness. They are related and they are not the same, and founders who conflate them find out during diligence rather than before it.",
+    sess: {"title": "Protect what you built, then find out what it is worth", "meta": "60 minutes, quarterly. Steps one and two with your leadership team, step three alone.", "steps": ["Re-measure the ratio. For two weeks, mark every working hour required or chosen. The ratio moves before anything visible does, which makes it the earliest warning you have.", "Re-ask the rehire question of your revenue, operations, and finance leaders. A role quietly outgrowing its holder is the most common cause of regression, and it rarely announces itself.", "Write one sentence: if the right offer arrived in ninety days, what would you actually do? Not what you would get. What you would do the following Monday."], "output": "An early read on drift, and an honest first answer to the question the market will eventually ask you."}
+  }
+};
+
+/* Required-hours share implied by the answer to Q3. Used for the cost readout. */
+const REQUIRED_SHARE = [0.90, 0.75, 0.50, 0.33, 0.20];
+const WORKDAYS = 240;
+const STANDARD_DAYS = Math.round(WORKDAYS * 0.20);
+
+const MORAL = [
+  "Founder dependency is not a character flaw.",
+  "It's a structural failure.",
+  "And structural failures have structural solutions."
+];
+
+let cur = 0;
+const answers = new Array(QUESTIONS.length).fill(null);
+
+function show(id) {
+  ["intro","quiz","capture","result"].forEach(s => document.getElementById(s).classList.add("hide"));
+  const el = document.getElementById(id);
+  el.classList.remove("hide");
+  el.classList.add("fade");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function start() { cur = 0; show("quiz"); render(); }
+
+function render() {
+  const q = QUESTIONS[cur];
+  document.getElementById("qtag").textContent = q.tag;
+  document.getElementById("qtext").textContent = q.q;
+  document.getElementById("qhelp").textContent = q.help;
+  document.getElementById("progFill").style.width = ((cur) / QUESTIONS.length * 100) + "%";
+  document.getElementById("progLabel").textContent = "Question " + (cur + 1) + " of " + QUESTIONS.length;
+  document.getElementById("backBtn").style.visibility = cur === 0 ? "hidden" : "visible";
+  const box = document.getElementById("opts");
+  box.innerHTML = "";
+  q.opts.forEach((text, i) => {
+    const b = document.createElement("button");
+    b.className = "opt" + (answers[cur] === i ? " sel" : "");
+    b.textContent = text;
+    b.onclick = () => choose(i);
+    box.appendChild(b);
+  });
+}
+
+function choose(i) {
+  answers[cur] = i;
+  render();
+  setTimeout(() => {
+    if (cur < QUESTIONS.length - 1) { cur++; render(); }
+    else { document.getElementById("progFill").style.width = "100%"; show("capture"); }
+  }, 180);
+}
+
+function back() { if (cur > 0) { cur--; render(); } }
+
+function computeScore() {
+  const raw = answers.reduce((a, b) => a + (b || 0), 0);      // 0..40
+  return Math.round(raw / (QUESTIONS.length * 4) * 100);       // 0..100
+}
+
+function bandFor(pct) { return BANDS.find(b => pct <= b.max) || BANDS[BANDS.length - 1]; }
+
+/* Internal fit sort. Never shown to the founder. Posted to HubSpot as fi_fit.
+   Three disqualifiers: no leadership foundation, no willingness, already independent.
+   Willingness reads as either direction: working ON the business, or reclaiming a life
+   outside it. Both are Founder Independence. Only "Benchmarking only" signals neither. */
+function fitFor(pct, enginesAnswer, revenue, intent) {
+  if (intent === "Benchmarking only") return "Nurture — no stated willingness";
+  if (pct >= 85) return "Qualified — CEPA saleability assessment";
+  if (enginesAnswer !== null && enginesAnswer <= 1) return "Too early — no leadership foundation";
+  if (pct < 25) return "Too early — no leadership foundation";
+  if (revenue === "Under $5M") return "Nurture — below revenue band";
+  if (pct <= 65) return "Qualified — Founder Independence";
+  return "Gates conversation — exit readiness";
+}
+
+function submitForm(skipped) {
+  const fn = document.getElementById("fn").value.trim();
+  const ln = document.getElementById("ln").value.trim();
+  const em = document.getElementById("em").value.trim();
+  const co = document.getElementById("co").value.trim();
+  const rev = document.getElementById("rev").value;
+  const intent = document.getElementById("intent").value;
+  const err = document.getElementById("err");
+  const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em);
+  if (!skipped && !emailOk) {
+    if (BETA_MODE && !em) { /* beta: blank email is allowed through */ }
+    else { err.textContent = "A valid work email is required."; err.classList.remove("hide"); return; }
+  }
+  err.classList.add("hide");
+  document.getElementById("subBtn").disabled = true;
+
+  const pct = computeScore();
+  const band = bandFor(pct);
+  const fit = fitFor(pct, answers[3], rev, intent);
+  window.__who = { fn, ln, em, co, rev, intent };
+
+  if (HUBSPOT.FORM_GUID) {
+    const payload = {
+      fields: [
+        { name: "email", value: em },
+        { name: "firstname", value: fn },
+        { name: "lastname", value: ln },
+        { name: "company", value: co },
+        { name: "fi_score", value: String(pct) },
+        { name: "fi_band", value: band.label },
+        { name: "fi_fit", value: fit },
+        { name: "fi_revenue", value: rev },
+        { name: "fi_intent", value: intent }
+      ],
+      context: { pageUri: location.href, pageName: "Founder Independence Diagnostic" }
+    };
+    fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT.PORTAL_ID}/${HUBSPOT.FORM_GUID}`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload)
+    }).catch(() => {}).finally(() => showResult(pct, band));
+  } else {
+    console.log(BETA_MODE ? "[beta mode] nothing sent:" : "[preview mode] would submit:",
+                { fn, ln, em, co, revenue: rev, intent, score: pct, band: band.label, fit });
+    showResult(pct, band);
+  }
+}
+
+function showResult(pct, band) {
+  show("result");
+  document.getElementById("pct").textContent = pct;
+  const chip = document.getElementById("bandChip");
+  chip.textContent = band.label;
+  chip.style.color = band.color;
+  chip.style.background = band.bg;
+  const fill = document.getElementById("meterFill");
+  fill.style.background = band.color;
+  setTimeout(() => { fill.style.width = pct + "%"; }, 60);
+
+
+  /* ---- three dimensions ---- */
+  const dims = DIMENSIONS.map(d => {
+    const got = d.q.reduce((s, i) => s + (answers[i] || 0), 0);
+    return { ...d, pct: Math.round(got / (d.q.length * 4) * 100) };
+  });
+  const lowest = dims.reduce((a, b) => b.pct < a.pct ? b : a);
+  const highest = dims.reduce((a, b) => b.pct > a.pct ? b : a);
+  const spread = highest.pct - lowest.pct;
+
+  const dimColor = p => p < 40 ? "var(--status-critical)" : p < 70 ? "var(--status-serious)" : "var(--status-good)";
+  document.getElementById("dims").innerHTML = dims.map(d =>
+    `<div class="dim ${d === lowest && spread >= 15 ? "weak" : ""}">
+       <div class="dim-head">
+         <span><span class="dim-name">${d.label}</span> <span class="dim-lens">${d.lens}</span></span>
+         <span class="dim-pct" style="color:${dimColor(d.pct)}">${d.pct}%</span>
+       </div>
+       <div class="dim-track"><div class="dim-fill" style="width:0%;background:${dimColor(d.pct)}" data-w="${d.pct}"></div></div>
+       <div class="dim-note">${d.pct >= 70 ? d.high : d.low}</div>
+     </div>`).join("");
+  setTimeout(() => document.querySelectorAll(".dim-fill").forEach(f => f.style.width = f.dataset.w + "%"), 80);
+
+  const optAns = answers[9] || 0;
+  document.getElementById("optionality").innerHTML =
+    "<strong>Optionality:</strong> " + (optAns >= 3
+      ? "you could sell, scale, or stay by choice today. That is the whole point of the work."
+      : optAns === 2
+        ? "a transaction is possible but would lean heavily on you staying. Choice is partial."
+        : "the options are not open yet. Right now circumstance decides, not you.");
+
+  /* ---- named diagnosis ---- */
+  const key = dims.every(d => d.pct >= 80) ? "clear"
+            : spread < 15 ? "even"
+            : lowest.key;
+  const dg = DIAGNOSES[key];
+  document.getElementById("diagTitle").textContent = dg.title;
+  document.getElementById("diagBody").innerHTML = dg.body;
+  document.getElementById("diagDo").textContent = dg.doFirst;
+  document.getElementById("diagNot").textContent = dg.notYet;
+  document.getElementById("sessTitle").textContent = dg.sess.title;
+  document.getElementById("sessMeta").textContent = dg.sess.meta;
+  document.getElementById("sessSteps").innerHTML = dg.sess.steps.map(t => `<li>${t}</li>`).join("");
+  document.getElementById("sessOut").textContent = dg.sess.output;
+  document.getElementById("cepaBlock").classList.toggle("hide", key !== "clear");
+
+  /* ---- cost ---- */
+  const share = REQUIRED_SHARE[answers[2] === null ? 2 : answers[2]];
+  const reqDays = Math.round(WORKDAYS * share);
+  const gapDays = Math.max(0, reqDays - STANDARD_DAYS);
+  const gapWeeks = Math.round(gapDays / 5);
+  const rev = (window.__who && window.__who.rev) || "";
+  let costHtml =
+    `<div class="costbox">
+       <div class="costnum">${gapDays}<small> days</small></div>
+       <div class="costtext">Your answers put roughly <strong>${reqDays} of 240 working days</strong> a year in the required column rather than the chosen one. The 1/5 Standard is ${STANDARD_DAYS}. The difference is about <strong>${gapWeeks} weeks a year</strong> the business decides for you.</div>
+     </div>`;
+  if (gapDays === 0) {
+    costHtml = `<div class="costbox"><div class="costnum" style="color:var(--delta-good)">0<small> days</small></div>
+      <div class="costtext">You are at or inside the 1/5 Standard. The time cost of dependency is no longer the constraint.</div></div>`;
+  }
+  if (rev && rev !== "Under $5M") {
+    costHtml += `<div class="costbox"><div class="costnum" style="color:var(--ink-2);font-size:34px;">1&ndash;2x</div>
+      <div class="costtext">The second cost is enterprise value. Buyers price key-person risk directly, and in exit planning the spread between a business that runs without its founder and one that does not commonly runs one to two turns of EBITDA. On a business your size that spread is usually the largest single number in the transaction, and it is decided years before the transaction happens.</div></div>`;
+  }
+  document.getElementById("cost").innerHTML = costHtml;
+
+  // two lowest scores become the named constraints
+  const ranked = answers.map((v, i) => ({ i, v: v === null ? 0 : v }))
+                        .sort((a, b) => a.v - b.v || a.i - b.i)
+                        .slice(0, 2);
+  document.getElementById("constraints").innerHTML = ranked.map(r =>
+    `<div class="constraint">
+       <div class="cn">${QUESTIONS[r.i].tag}</div>
+       <div class="cq">${QUESTIONS[r.i].q}</div>
+       <div class="ca">You answered: <em>${QUESTIONS[r.i].opts[r.v]}</em></div>
+     </div>`).join("");
+
+  document.getElementById("moral").innerHTML = MORAL.map(l => `<div>${l}</div>`).join("");
+
+  if (BETA_MODE) {
+    document.getElementById("betaBlock").classList.remove("hide");
+    window.__result = {
+      pct, band: band.label,
+      constraints: ranked.map(r => QUESTIONS[r.i].tag),
+      answers: answers.map(a => a === null ? "-" : a).join(","),
+      who: window.__who || {},
+      dims: dims.map(d => `${d.label} ${d.pct}%`).join(" / "),
+      diagnosis: dg.title
+    };
+    if (FEEDBACK_ENDPOINT) sendBetaResult();
+  }
+}
+
+function resultText() {
+  const r = window.__result, w = r.who || {};
+  return `Founder Independence Diagnostic
+Name: ${[w.fn, w.ln].filter(Boolean).join(" ") || "(not given)"}
+Company: ${w.co || "(not given)"}
+Revenue: ${w.rev || "(not given)"}
+Driving this: ${w.intent || "(not given)"}
+
+Score: ${r.pct}/100 — ${r.band}
+Pattern: ${r.dims}
+Diagnosis: ${r.diagnosis}
+
+Top constraints:
+1. ${r.constraints[0]}
+2. ${r.constraints[1]}
+
+Answer pattern (Q1–Q10): ${r.answers}
+
+Hardest question to answer:
+Did the score match my gut:`;
+}
+
+function sendBetaResult() {
+  const r = window.__result, w = r.who || {};
+  fetch(FEEDBACK_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      name: [w.fn, w.ln].filter(Boolean).join(" "),
+      email: w.em || "", company: w.co || "",
+      revenue: w.rev || "", intent: w.intent || "",
+      score: r.pct, band: r.band,
+      constraints: r.constraints.join(" + "),
+      answers: r.answers,
+      _subject: `Diagnostic beta: ${r.pct}/100 ${r.band}`
+    })
+  }).then(() => {
+    document.getElementById("copyNote").textContent = "Your result was sent to Herb. Add your two answers below by email or reply.";
+  }).catch(() => {});
+}
+
+function emailResult() {
+  const r = window.__result;
+  const subject = encodeURIComponent(`Diagnostic beta feedback: ${r.pct}/100 ${r.band}`);
+  const body = encodeURIComponent(resultText());
+  window.location.href = `mailto:${HERB_EMAIL}?subject=${subject}&body=${body}`;
+}
+
+function copyResult() {
+  const text = resultText();
+  const note = document.getElementById("copyNote");
+  navigator.clipboard.writeText(text)
+    .then(() => { note.textContent = "Copied. Paste it into your reply."; })
+    .catch(() => {
+      const ta = document.createElement("textarea");
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); note.textContent = "Copied. Paste it into your reply."; }
+      catch (e) { note.textContent = "Select and copy the text above."; }
+      document.body.removeChild(ta);
+    });
+}
+
+/* The capture note must always match what actually happens. */
+const SENDS = Boolean(HUBSPOT.FORM_GUID || FEEDBACK_ENDPOINT);
+if (BETA_MODE) {
+  document.getElementById("skipBtn").classList.remove("hide");
+  document.getElementById("captureNote").textContent = SENDS
+    ? "Your score and answers are sent to Herb. Contact details are optional."
+    : "Nothing is stored or sent. Contact details are optional.";
+  if (SENDS) {
+    document.getElementById("betaHow").textContent =
+      "Your result already reached Herb. Add your two answers below and send.";
+  }
+} else if (SENDS) {
+  document.getElementById("captureNote").textContent =
+    "Your result is emailed to you and sent to Herb. No list rental, no sequence you can't leave.";
+}
+</script>
+</body>
+</html>
